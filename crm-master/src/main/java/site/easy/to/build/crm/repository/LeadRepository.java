@@ -2,6 +2,8 @@ package site.easy.to.build.crm.repository;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import site.easy.to.build.crm.entity.Customer;
 import site.easy.to.build.crm.entity.Lead;
@@ -25,10 +27,15 @@ public interface LeadRepository extends JpaRepository<Lead, Integer> {
 
     public List<Lead> findByCustomerCustomerIdOrderByCreatedAtDesc(int customerId, Pageable pageable);
 
+
     long countByEmployeeId(int employeeId);
 
     long countByManagerId(int managerId);
     long countByCustomerCustomerId(int customerId);
 
     void deleteAllByCustomer(Customer customer);
+
+    @Query("SELECT COUNT(l) FROM Lead l WHERE YEAR(l.createdAt) = :year AND month (l.createdAt) = :month")
+    long countByYearAndMonth(@Param("year") int year, @Param("month") int month);
+
 }

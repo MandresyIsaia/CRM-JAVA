@@ -74,29 +74,23 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Leads</h4>
+                            <h4 class="card-title">Seuil</h4>
                             <div class="table-responsive m-t-40">
                                 <table id="config-table" class="table display table-bordered table-striped no-wrap">
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Lead</th>
-                                        <th>phone</th>
-                                        <th>Status</th>
-                                        <th>Employee email</th>
-                                        <th>Employee name</th>
-                                        <th>Show</th>
+                                        <th>taux</th>
+                                        <th>Date</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr th:if="${leads != null}" th:each="lead : ${leads}">
-                                        <td th:text="${lead.leadId}"></td>
-                                        <td th:text="${lead.name}"></td>
-                                        <td th:text="${lead.phone}"></td>
-                                        <td th:text="${lead.status}"></td>
-                                        <td th:text="${lead.employee.email}"></td>
-                                        <td th:text="${lead.employee.username}"></td>
-                                        <td><a th:href="@{${home} + 'customer/lead/' + ${lead.leadId}}"><i class="fas fa-eye"></i></a></td>
+                                    <tr th:if="${seuil != null}">
+                                        <td th:text="${seuil.SeuilId}"></td>
+                                        <td th:text="${seuil.taux}"></td>
+                                        <td th:text="${seuil.DateSeuil}"></td>
+                                        
+                                        
                                     </tr>
                                     </tbody>
                                 </table>

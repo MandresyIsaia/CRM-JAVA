@@ -1,0 +1,22 @@
+@model List<MonProjetMVC.Models.Customer>
+
+<div>
+    <h2>Liste des Customers</h2>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>Created at</th>
+        </tr>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.customerId</td>
+                <td>@customer.name</td>
+                <td>@customer.email</td>
+                <td>@customer.createdAt</td>
+            </tr>
+        }
+    </table>
+</div>

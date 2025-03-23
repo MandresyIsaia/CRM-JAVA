@@ -1,0 +1,29 @@
+@model List<MonProjetMVC.Models.Depense>
+<div>
+    <h2>Liste des Tickets</h2>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Subject</th>
+            <th>Status</th>
+            <th>Description</th>
+            <th>Somme</th>
+            <th>Created at</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+        </tr>
+        @foreach (var depense in Model)
+        {
+            <tr>
+                <td>@depense.ticket.ticketId</td>
+                <td>@depense.ticket.subject</td>
+                <td>@depense.ticket.status</td>
+                <td>@depense.ticket.description</td>
+                <td>@depense.valeurDepense</td>
+                <td>@depense.ticket.createdAt</td>
+                <td><a href="@Url.Action("Modifier", "Ticket", new { nom = depense.ticket.ticketId })">Modifier</a></td>
+                <td><a href="@Url.Action("Suprimmer", "Ticket", new { nom = depense.ticket.ticketId })">Supprimer</a></td>
+            </tr>
+        }
+    </table>
+</div>

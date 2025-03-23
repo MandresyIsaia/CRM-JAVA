@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface UserService {
 
+
     public long countAllUsers();
 
     public User findById(int id);
@@ -21,5 +22,7 @@ public interface UserService {
     public void deleteById(int id);
 
     public List<User> findAll();
+    public List<User> getUsersByRoleId(int roleId);
+
 
 }

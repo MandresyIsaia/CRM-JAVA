@@ -22,7 +22,7 @@ public class ConfigurationBaseService {
         List<String> tables = jdbcTemplate.queryForList("SHOW TABLES", String.class);
 
         // Liste des tables à ne pas supprimer
-        List<String> tablesAExclure = List.of("roles","oauth_users","user_profile","user_roles","users");
+        List<String> tablesAExclure = List.of("roles","oauth_users","user_profile","user_roles","users","customer","customer_login_info");
 
         // Truncate chaque table sauf celles à exclure
         for (String table : tables) {

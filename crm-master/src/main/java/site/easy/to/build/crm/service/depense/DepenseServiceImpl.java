@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import site.easy.to.build.crm.entity.Depense;
@@ -60,4 +61,24 @@ public class DepenseServiceImpl implements DepenseService {
     //     depenseRepository.save(depense);
         
     // }
+    @Override
+    public Depense  getDepenseByLeadId(int idLead){
+        return depenseRepository.getDepenseByLeadId(idLead);
+    }
+    @Override
+    public Depense  getDepenseByTicketId( int idTicket){
+        return depenseRepository.getDepenseByTicketId(idTicket);
+    }
+    @Override
+    public List<Depense> findTicketsWithActiveDepenses(){
+        return depenseRepository.findTicketsWithActiveDepenses();
+    }
+    @Override
+    public List<Depense> findLeadsWithActiveDepenses(){
+        return depenseRepository.findLeadsWithActiveDepenses();
+    }
+    @Override
+    public void delete(Depense depense){
+        depenseRepository.delete(depense);
+    }
 }

@@ -38,4 +38,5 @@ public interface LeadRepository extends JpaRepository<Lead, Integer> {
     @Query("SELECT COUNT(l) FROM Lead l WHERE YEAR(l.createdAt) = :year AND month (l.createdAt) = :month")
     long countByYearAndMonth(@Param("year") int year, @Param("month") int month);
 
+
 }

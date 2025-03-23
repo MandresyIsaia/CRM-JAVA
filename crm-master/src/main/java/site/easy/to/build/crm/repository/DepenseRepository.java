@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import site.easy.to.build.crm.entity.Budget;
 import site.easy.to.build.crm.entity.Depense;
+import site.easy.to.build.crm.entity.Ticket;
 
 @Repository
 public interface DepenseRepository extends JpaRepository<Depense, Integer> {
@@ -19,6 +20,21 @@ public interface DepenseRepository extends JpaRepository<Depense, Integer> {
        "LEFT JOIN d.ticket t " +
        "LEFT JOIN l.customer c " +
        "LEFT JOIN t.customer c2 " +
-       "WHERE c.customerId = :customerId OR c2.customerId = :customerId")    
+       "WHERE (c.customerId = :customerId OR c2.customerId = :customerId) and d.etat= 1")
     public double getTotalDepenseByCustomerId(@Param("customerId") int customerId);
+
+    @Query("SELECT d " +
+            "FROM Depense d " +
+            "WHERE d.lead.leadId =: idLead")
+    public Depense  getDepenseByLeadId(@Param("idLead") int idLead);
+
+    @Query("SELECT d " +
+            "FROM Depense d " +
+            "WHERE d.ticket.ticketId =: idTicket")
+    public Depense  getDepenseByTicketId(@Param("idTicket") int idTicket);
+    @Query("SELECT DISTINCT d FROM Depense d WHERE d.etat = 1 AND d.ticket IS NOT NULL")
+    List<Depense> findTicketsWithActiveDepenses();
+    @Query("SELECT DISTINCT d FROM Depense d WHERE d.etat = 1 AND d.lead IS NOT NULL")
+    List<Depense> findLeadsWithActiveDepenses();
+
 }

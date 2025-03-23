@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import site.easy.to.build.crm.service.csv.CsvService;
 import site.easy.to.build.crm.service.csv.EntityScannerService;
 
@@ -18,47 +19,32 @@ public class CsvController {
 
     private final CsvService csvService;
     private final EntityScannerService entityScannerService;
-    private final DataSource dataSource;
 
     public CsvController(CsvService csvService,EntityScannerService entityScannerService, DataSource dataSource) {
         this.csvService = csvService;
         this.entityScannerService = entityScannerService;
-        this.dataSource = dataSource;
     }
     @GetMapping("/form")
     public String showForm(Model model){
         Set<Class<?>> entities = entityScannerService.getAllEntities();
+        char[] separators = {',', ';'};
         model.addAttribute("entities",entities);
+        model.addAttribute("separators",separators);
         return "csv/import";
     }
 
     @PostMapping("/upload")
-    public ResponseEntity<String> uploadCsv(@RequestParam("file") MultipartFile file,
-                                            @RequestParam("entityName") String entityName) throws Exception{
-        Connection connection=null;
-        try{
-            connection=dataSource.getConnection();
-        }
-        catch(SQLException e){
-            return ResponseEntity.internalServerError().body("Erreur lors de la connection a la base : " + e.getMessage());
-        }
+    public String uploadCsv(@RequestParam("file") MultipartFile file,
+                            @RequestParam("entityName") String entityName, RedirectAttributes redirectAttributes,
+                            @RequestParam("separator")char separator) throws Exception{
         try {
             Class<?> entityClass = getEntityClass(entityName);
-            csvService.insertDataFromCsv(file, entityClass,connection);
-            return ResponseEntity.ok("Fichier CSV importé avec succès !");
+            csvService.insertData(file, entityClass,separator);
+            redirectAttributes.addAttribute("message","Fichier CSV importé avec succès !");
+            return "redirect:/csv/form";
         } catch (Exception e) {
             e.printStackTrace();
-            return ResponseEntity.badRequest().body("Erreur lors de l'importation : " + e.getMessage());
-        }
-        finally {
-            if (connection!=null){
-                try{
-                    connection.close();
-                }
-                catch(SQLException e){
-                    return ResponseEntity.internalServerError().body("Erreur lors de la fermeture de la connection : " + e.getMessage());
-                }
-            }
+            return "error/500";
         }
     }
 

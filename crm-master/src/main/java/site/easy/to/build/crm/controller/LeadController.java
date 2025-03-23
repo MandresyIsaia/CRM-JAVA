@@ -235,9 +235,9 @@ public class LeadController {
         depenseToInsert.setLead(lead);
         depenseToInsert.setValeurDepense(depense);
         leadService.save(createdLead);
-        depService.saveDepense(depenseToInsert);
+        Depense depense1= depService.saveDepense(depenseToInsert);
         notif.setEtat(0);
-
+        notif.setIdDepense(depense1.getDepenseId());
         System.out.println("notif.getMessage()" + notif.getMessage());
         if (!notif.getMessage().equals("successful")) {
             notifService.save(notif);

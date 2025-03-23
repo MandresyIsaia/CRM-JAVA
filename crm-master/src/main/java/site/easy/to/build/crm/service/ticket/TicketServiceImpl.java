@@ -90,4 +90,23 @@ public class TicketServiceImpl implements TicketService{
     public void deleteAllByCustomer(Customer customer) {
         ticketRepository.deleteAllByCustomer(customer);
     }
+    @Override
+    public  long countByYearAndMonth(int year,int month){
+        return ticketRepository.countByYearAndMonth(year,month);
+    }
+
+    @Override
+    public List<Ticket> findTicketsWithActiveDepenses(){
+        return ticketRepository.findTicketsWithActiveDepenses();
+    }
+
+    @Override
+    public List<Ticket> findTicketsWithEnAttenteDepenses(){
+        return ticketRepository.findTicketsWithEnAttenteDepenses();
+    }
+
+    @Override
+    public List<Ticket> findTicketsWithRefusedDepenses(){
+        return ticketRepository.findTicketsWithRefusedDepenses();
+    }
 }

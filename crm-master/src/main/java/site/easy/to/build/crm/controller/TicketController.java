@@ -183,7 +183,7 @@ public class TicketController {
         depenseToInsert.setTicket(ticket);
         depenseToInsert.setValeurDepense(depense);
         ticketService.save(ticket);
-        depenseService.saveDepense(depenseToInsert);
+        Depense depense1= depenseService.saveDepense(depenseToInsert);
         // if (depenseToInsert.getEtat()==0) {
         //     List<User> employees = new ArrayList<>();
         //     List<Customer> customers;
@@ -204,6 +204,7 @@ public class TicketController {
 
         // }
         notif.setEtat(0);
+        notif.setIdDepense(depense1.getDepenseId());
         if (!notif.getMessage().equals("successful")){
             notificationService.save(notif);
         }

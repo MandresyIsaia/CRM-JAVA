@@ -33,4 +33,11 @@ public interface TicketService {
     long countByCustomerCustomerId(int customerId);
 
     void deleteAllByCustomer(Customer customer);
+    long countByYearAndMonth(int year,int month);
+
+    List<Ticket> findTicketsWithActiveDepenses();
+
+    List<Ticket> findTicketsWithEnAttenteDepenses();
+
+    List<Ticket> findTicketsWithRefusedDepenses();
 }

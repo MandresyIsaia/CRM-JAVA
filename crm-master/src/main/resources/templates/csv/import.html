@@ -73,6 +73,15 @@
             <div class="row">
                 <form th:action="@{/csv/upload}" method="post" enctype="multipart/form-data">
                     <div class="form-group">
+                        <label for="separator">Sélectionner un separateur</label>
+                        <select name="separator" id="separator" class="form-control" required>
+                            <option value="" hidden="">Choisissez un separateur</option>
+                            <th:block th:each="separator : ${separators}">
+                                <option th:value="${separator}" th:text="${separator}">Separator Name</option>
+                            </th:block>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="entityName">Sélectionner une entité</label>
                         <select name="entityName" id="entityName" class="form-control" required>
                             <option value="" hidden="">Choisissez une entité</option>
@@ -89,6 +98,9 @@
 
                     <button type="submit" class="btn btn-primary">Importer</button>
                 </form>
+                <script th:if="${message != null}">
+                    alert(${message});
+                </script>
             </div>
             <!-- ============================================================== -->
             <!-- End Page Content -->

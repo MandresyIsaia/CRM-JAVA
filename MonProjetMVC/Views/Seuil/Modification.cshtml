@@ -1,0 +1,12 @@
+@model MonProjetMVC.Models.Seuil
+
+<div>
+    <h2>Modification: @Model.seuilId</h2>
+
+    <form class="form" method="post" asp-action="ModificationSeuil" asp-controller="Seuil">
+        <label for="nom">Nouveau valeur :</label>
+        <input type="number" id="nom" name="nom" value="@((double)Model.taux)" step="0.01" />
+        <input type="hidden" value="@Model.seuilId" name="id">
+        <button type="submit">Soumettre</button>
+    </form>
+</div>

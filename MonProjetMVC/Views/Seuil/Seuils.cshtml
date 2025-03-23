@@ -1,0 +1,21 @@
+@model List<MonProjetMVC.Models.Seuil>
+<div>
+    <h2>Liste des seuils</h2>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Valeur</th>
+            <th>Date seuil</th>
+            <th>Modifier</th>
+        </tr>
+        @foreach (var seuil in Model)
+        {
+            <tr>
+                <td>@seuil.seuilId</td>
+                <td>@seuil.taux %</td>
+                <td>@seuil.dateSeuil</td>
+                <td><a href="@Url.Action("Modifier", "Seuil", new { nom = seuil.seuilId })">Modifier</a></td>
+            </tr>
+        }
+    </table>
+</div>

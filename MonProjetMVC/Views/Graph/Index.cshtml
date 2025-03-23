@@ -1,0 +1,61 @@
+@{
+    ViewData["Title"] = "Graphiques";
+}
+
+<h2>Graphiques en ASP.NET</h2>
+
+<!-- Conteneurs pour les Graphiques -->
+<canvas id="barChart"></canvas>
+<canvas id="lineChart"></canvas>
+<canvas id="pieChart"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    async function loadGraphData() {
+        const response = await fetch('/Graph/GetGraphData');
+        const data = await response.json();
+
+        // 🔹 Bar Chart
+        new Chart(document.getElementById('barChart'), {
+            type: 'bar',
+            data: {
+                labels: data.labels,
+                datasets: [{
+                    label: 'Ventes Mensuelles',
+                    data: data.values1,
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)'
+                }]
+            }
+        });
+
+        // 🔹 Line Chart
+        new Chart(document.getElementById('lineChart'), {
+            type: 'line',
+            data: {
+                labels: data.labels,
+                datasets: [{
+                    label: 'Croissance',
+                    data: data.values2,
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    fill: false
+                }]
+            }
+        });
+
+        // 🔹 Pie Chart
+        new Chart(document.getElementById('pieChart'), {
+            type: 'pie',
+            data: {
+                labels: data.labels,
+                datasets: [{
+                    label: 'Répartition',
+                    data: data.values3,
+                    backgroundColor: ['red', 'blue', 'yellow', 'green', 'purple', 'orange']
+                }]
+            }
+        });
+    }
+
+    // Charger les données au chargement de la page
+    loadGraphData();
+</script>

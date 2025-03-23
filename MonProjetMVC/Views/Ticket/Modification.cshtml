@@ -1,0 +1,13 @@
+@model MonProjetMVC.Models.Depense
+
+
+<div>
+    <h2>Modification: @Model.ticket.subject</h2>
+
+    <form class="form" method="post" asp-action="ModificationTicket" asp-controller="Ticket">
+        <label for="nom">Nouveau valeur :</label>
+        <input type="number" id="nom" name="nom" required value="@Model.valeurDepense" />
+        <input type="hidden" value="@Model.depenseId" name="id">
+        <button type="submit">Soumettre</button>
+    </form>
+</div>

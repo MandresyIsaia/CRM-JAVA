@@ -1,0 +1,132 @@
+@{
+    ViewData["Title"] = "Graphiques";
+}
+
+<style>
+    /* Styles généraux */
+    body {
+        background-color: #f8f9fa;
+        color: #333;
+        font-family: 'Arial', sans-serif;
+        text-align: center;
+    }
+
+    /* Titre */
+    h2 {
+        color: #007bff;
+        font-size: 2rem;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    /* Conteneur principal pour aligner les graphiques */
+    .chart-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    /* Conteneur de chaque graphique */
+    .chart-box {
+        background: #ffffff;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.2);
+        border: 2px solid #007bff;
+        flex: 1;
+        /* Permet aux charts de s'adapter à l'espace */
+        max-width: 30%;
+        /* Pour garder trois colonnes */
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    }
+
+    .chart-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 6px 15px rgba(0, 123, 255, 0.4);
+    }
+
+    /* Ajustement des canvas */
+    canvas {
+        width: 100% !important;
+        height: 200px !important;
+    }
+</style>
+
+<h2>@ViewData["Title"]</h2>
+
+<!-- Conteneur des Graphiques -->
+<div class="chart-container">
+    <div class="chart-box">
+        <canvas id="barChart"></canvas>
+    </div>
+    <div class="chart-box">
+        <canvas id="lineChart"></canvas>
+    </div>
+    <div class="chart-box">
+        <canvas id="pieChart"></canvas>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    async function loadGraphData() {
+        const response = await fetch('/Graph/GetGraphDataLead');
+        const data = await response.json();
+
+        // 🔹 Bar Chart
+        new Chart(document.getElementById('barChart'), {
+            type: 'bar',
+            data: {
+                labels: data.labels,
+                datasets: [{
+                    label: 'Lead mensuelle',
+                    data: data.values1,
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                    borderColor: '#007bff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+
+        // 🔹 Line Chart
+        new Chart(document.getElementById('lineChart'), {
+            type: 'line',
+            data: {
+                labels: data.labels,
+                datasets: [{
+                    label: 'Ticket mensuelle',
+                    data: data.values2,
+                    borderColor: '#ff3366',
+                    backgroundColor: 'rgba(255, 51, 102, 0.2)',
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+
+        // 🔹 Pie Chart
+        new Chart(document.getElementById('pieChart'), {
+            type: 'pie',
+            data: {
+                labels: data.labels2,
+                datasets: [{
+                    label: 'Type de ticket',
+                    data: data.values3,
+                    backgroundColor: ['#ffcc00', '#007bff', '#28a745']
+                }]
+            }
+        });
+    }
+
+    // Charger les données au chargement de la page
+    loadGraphData();
+</script>

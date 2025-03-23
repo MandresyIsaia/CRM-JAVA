@@ -1,0 +1,11 @@
+@{
+    ViewData["Title"] = "Saisie du Nom";
+}
+
+<h2>Entrez votre nom</h2>
+
+<form method="post" asp-action="SaveName" asp-controller="User">
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" name="nom" required />
+    <button type="submit">Soumettre</button>
+</form>

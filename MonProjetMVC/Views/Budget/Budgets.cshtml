@@ -1,0 +1,33 @@
+@model List<MonProjetMVC.Models.Budget>
+
+@{
+    ViewData["Title"] = "Budgets";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (Model == null || !Model.Any())
+{
+    <p>Aucun budget trouvé.</p>
+}
+else
+{
+    <div>
+        <h2>Liste des Budgets</h2>
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Valeur</th>
+                <th>Client</th>
+            </tr>
+            @foreach (var budget in Model)
+            {
+                <tr>
+                    <td>@budget.Id</td>
+                    <td>@budget.Valeur</td>
+                    <td>@(budget.Customer != null ? budget.Customer.name : "Aucun client")</td>
+                </tr>
+            }
+        </table>
+    </div>
+}

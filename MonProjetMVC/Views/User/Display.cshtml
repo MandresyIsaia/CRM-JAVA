@@ -1,0 +1,10 @@
+@{
+    ViewData["Title"] = "Affichage du Nom";
+}
+
+<h2>Votre nom est :</h2>
+
+<p>@Model</p>
+
+<a href="@Url.Action("Index", "User")">Retour</a>
+<a href="@Url.Action("Logout", "User")">Logout</a>

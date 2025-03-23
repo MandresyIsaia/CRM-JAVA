@@ -1,0 +1,95 @@
+@model List<MonProjetMVC.Models.ReponseJSON>
+
+@{
+    ViewData["Title"] = "Total";
+}
+<style>
+    /* Arrière-plan clair */
+    body {
+        background-color: #f8f9fa;
+        color: #333;
+        font-family: 'Arial', sans-serif;
+    }
+
+    /* Conteneur principal */
+    .container {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    /* Titre */
+    h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        color: #007bff;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    /* Grille d'affichage */
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    /* Cartes */
+    .col-md-6 {
+        flex: 1 1 45%;
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.2);
+        text-align: center;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+        border: 2px solid #007bff;
+    }
+
+    .col-md-6:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 6px 15px rgba(0, 123, 255, 0.4);
+    }
+
+    /* Liens */
+    a {
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+        font-size: 1.4rem;
+        transition: color 0.3s, text-shadow 0.3s;
+    }
+
+    a:hover {
+        color: #ffcc00;
+        text-shadow: 0 0 10px rgba(255, 204, 0, 0.6);
+    }
+
+    /* Titres */
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+        color: #007bff;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+        color: #ff9900;
+        font-weight: bold;
+    }
+</style>
+<h1>@ViewData["Title"]</h1>
+<div class="container">
+    <div class="row">
+        @foreach (var reponseJSON in Model)
+        {
+            <div class="col-md-6">
+                <a href="@Url.Action("Precision", "Home", new { nom = reponseJSON.nom })">
+                    <h2>@reponseJSON.nom</h2>
+                </a>
+                <h3>@reponseJSON.valeur</h3>
+            </div>
+        }
+    </div>
+</div>

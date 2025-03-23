@@ -3,6 +3,51 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h2>Entrez votre authentification</h2>
+
+    <form class="form" method="post" asp-action="SaveName" asp-controller="Home">
+        <label for="nom">votre authentification :</label>
+        <input type="text" id="nom" name="nom" required />
+        <button type="submit">Soumettre</button>
+    </form>
 </div>
+@* @{
+    Layout = null;
+}
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/newApp.styles.css" asp-append-version="true" />
+
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="login-container card p-4">
+        <h2 class="card-title text-center">Login</h2>
+        <form asp-action="Login" asp-controller="Login" method="post">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-control" required>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </form>
+        <button class="btn btn-danger btn-block mt-3">Sign up with Google</button>
+    </div>
+</div>
+
+<style>
+    .login-container {
+        max-width: 400px;
+        width: 100%;
+    }
+
+    .login-container .card-title {
+        margin-bottom: 20px;
+    }
+
+    .login-container .btn-block {
+        width: 100%;
+    }
+</style> *@

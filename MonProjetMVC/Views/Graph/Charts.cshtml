@@ -22,23 +22,26 @@
     /* Conteneur principal pour aligner les graphiques */
     .chart-container {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 20px;
         padding: 20px;
     }
 
-    /* Conteneur de chaque graphique */
+    /* Style des graphiques */
     .chart-box {
         background: #ffffff;
         padding: 15px;
         border-radius: 10px;
         box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.2);
         border: 2px solid #007bff;
-        flex: 1;
-        /* Permet aux charts de s'adapter à l'espace */
-        max-width: 30%;
-        /* Pour garder trois colonnes */
+        flex: 1 1 400px;
+        max-width: 500px;
+        /* Largeur maximale pour éviter les graphiques trop grands */
+        height: 320px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         transition: transform 0.3s ease-in-out, box-shadow 0.3s;
     }
 
@@ -47,13 +50,42 @@
         box-shadow: 0px 6px 15px rgba(0, 123, 255, 0.4);
     }
 
-    /* Ajustement des canvas */
     canvas {
         width: 100% !important;
-        height: 200px !important;
+        height: 250px !important;
+        max-height: 300px;
+    }
+
+    /* Conteneur principal */
+    .container {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    /* Titre */
+    h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        color: #007bff;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    /* Liens */
+    a {
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+        font-size: 1.4rem;
+        transition: color 0.3s, text-shadow 0.3s;
+    }
+
+    a:hover {
+        color: #ffcc00;
+        text-shadow: 0 0 10px rgba(255, 204, 0, 0.6);
     }
 </style>
-
 <h2>@ViewData["Title"]</h2>
 
 <!-- Conteneur des Graphiques -->
@@ -100,7 +132,7 @@
             data: {
                 labels: data.labels,
                 datasets: [{
-                    label: 'Ticket mensuelle',
+                    label: 'Budget mensuelle',
                     data: data.values2,
                     borderColor: '#ff3366',
                     backgroundColor: 'rgba(255, 51, 102, 0.2)',

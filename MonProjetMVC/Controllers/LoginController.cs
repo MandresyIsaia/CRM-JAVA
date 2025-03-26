@@ -30,6 +30,7 @@ namespace MonProjetMVC.Controllers
             var response = await _loginService.IsValid(username, password);
             if (response.Equals("true", StringComparison.OrdinalIgnoreCase))
             {
+                HttpContext.Session.SetString("JSessionId", "connecter");
                 return RedirectToAction("Display", "Home");
             }
             return View("Index");

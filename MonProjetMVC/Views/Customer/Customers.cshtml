@@ -1,4 +1,4 @@
-@model List<MonProjetMVC.Models.Customer>
+@model List<MonProjetMVC.Models.Budget>
 
 <div>
     <h2>Liste des Customers</h2>
@@ -7,15 +7,17 @@
             <th>ID</th>
             <th>Nom</th>
             <th>Email</th>
+            <th>Budget</th>
             <th>Created at</th>
         </tr>
-        @foreach (var customer in Model)
+        @foreach (var budget in Model)
         {
             <tr>
-                <td>@customer.customerId</td>
-                <td>@customer.name</td>
-                <td>@customer.email</td>
-                <td>@customer.createdAt</td>
+                <td>@budget.customer.customerId</td>
+                <td>@budget.customer.name</td>
+                <td>@budget.customer.email</td>
+                <td>@budget.valeur</td>
+                <td>@budget.date</td>
             </tr>
         }
     </table>

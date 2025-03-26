@@ -64,6 +64,7 @@ namespace MonProjetMVC.Services
             }
 
             var content = await response.Content.ReadAsStringAsync();
+
             return content;
         }
         public async Task<string> EnvoyerBudgetAsync(object budget, string jsessionId, string url)
@@ -77,7 +78,7 @@ namespace MonProjetMVC.Services
             {
                 var json = JsonSerializer.Serialize(budget);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
-                Console.Write(json);
+
                 var response = await client.PostAsync(url, content);
 
                 if (!response.IsSuccessStatusCode)
@@ -100,7 +101,7 @@ namespace MonProjetMVC.Services
             {
                 var json = JsonSerializer.Serialize(budget);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
-                Console.WriteLine(json);
+
                 var response = await client.PostAsync(url, content);
 
                 if (!response.IsSuccessStatusCode)

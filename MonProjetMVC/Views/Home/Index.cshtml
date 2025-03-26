@@ -1,4 +1,4 @@
-﻿@{
+﻿@* @{
     ViewData["Title"] = "Home Page";
 }
 
@@ -10,8 +10,8 @@
         <input type="text" id="nom" name="nom" required />
         <button type="submit">Soumettre</button>
     </form>
-</div>
-@* @{
+</div> *@
+@{
     Layout = null;
 }
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -19,8 +19,8 @@
 <link rel="stylesheet" href="~/newApp.styles.css" asp-append-version="true" />
 
 <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
-    <div class="login-container card p-4">
-        <h2 class="card-title text-center">Login</h2>
+    <div class="login-container card p-4 shadow-lg">
+        <h2 class="card-title">Login</h2>
         <form asp-action="Login" asp-controller="Login" method="post">
             <div class="form-group">
                 <label for="username">Username</label>
@@ -33,21 +33,71 @@
             <br>
             <button type="submit" class="btn btn-primary btn-block">Login</button>
         </form>
-        <button class="btn btn-danger btn-block mt-3">Sign up with Google</button>
     </div>
 </div>
 
 <style>
+    /* Thème clair CryptoMoney */
+    body {
+        background-color: #f8f9fa;
+        color: #333;
+        font-family: 'Arial', sans-serif;
+        text-align: center;
+    }
+
+    /* Titre */
+    h2 {
+        color: #007bff;
+        font-size: 2rem;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    /* Conteneur principal */
+    .container {
+        max-width: 2000px;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    /* Login */
     .login-container {
         max-width: 400px;
         width: 100%;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+        border: 2px solid #007bff;
+        padding: 20px;
     }
 
     .login-container .card-title {
-        margin-bottom: 20px;
+        font-size: 1.8rem;
+        font-weight: bold;
+    }
+
+    .login-container .form-group label {
+        font-weight: bold;
+        color: #007bff;
+    }
+
+    .login-container .form-control {
+        border-radius: 5px;
+        border: 2px solid #007bff;
     }
 
     .login-container .btn-block {
         width: 100%;
+        background: linear-gradient(135deg, #007bff, #00c6ff);
+        border: none;
+        transition: 0.3s;
+        font-weight: bold;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
     }
-</style> *@
+
+    .login-container .btn-block:hover {
+        background: linear-gradient(135deg, #0056b3, #0099cc);
+    }
+</style>

@@ -16,6 +16,6 @@ namespace MonProjetMVC.Models
         public string? status { get; set; }
 
         public string? priority { get; set; }
-        public DateTime createdAt { get; set; } = DateTime.UtcNow;
+        public DateTime? createdAt { get; set; } = DateTime.UtcNow;
     }
 }

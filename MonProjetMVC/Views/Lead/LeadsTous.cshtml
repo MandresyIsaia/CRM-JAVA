@@ -1,0 +1,40 @@
+@model List<MonProjetMVC.Models.Depense>
+<div>
+    <h2>Liste des Leads</h2>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Status</th>
+            <th>Created at</th>
+            <th>Somme</th>
+            <th>Etat</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+        </tr>
+        @foreach (var depense in Model)
+        {
+            <tr>
+                <td>@depense.lead.leadId</td>
+                <td>@depense.lead.name</td>
+                <td>@depense.lead.status</td>
+                <td>@depense.lead.createdAt</td>
+                @if (depense.etat == 1)
+                {
+                    <td>Valider</td>
+                }
+                @if (depense.etat == 0)
+                {
+                    <td>en attente...</td>
+                }
+                @if (depense.etat == -1)
+                {
+                    <td>refuser</td>
+                }
+                <td>@depense.valeurDepense</td>
+                <td><a href="@Url.Action("ModifierTous", "Lead", new { nom = depense.depenseId })">Modifier</a></td>
+                <td><a href="@Url.Action("SuprimmerTous", "Lead", new { nom = depense.depenseId })">Supprimer</a></td>
+            </tr>
+        }
+    </table>
+</div>

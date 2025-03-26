@@ -7,9 +7,9 @@ namespace MonProjetMVC.Models
 {
     public class Budget
     {
-        public int Id { get; set; }
-        public double Valeur { get; set; }
-        public Customer? Customer { get; set; }  // Ici on garde Customer comme un objet
-        public DateTime Date { get; set; }
+        public int id { get; set; }
+        public double valeur { get; set; }
+        public Customer? customer { get; set; }  // Ici on garde Customer comme un objet
+        public DateTime? date { get; set; }
     }
 }

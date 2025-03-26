@@ -5,7 +5,7 @@
 }
 <style>
     /* Arrière-plan clair */
-    body {
+    @* body {
         background-color: #f8f9fa;
         color: #333;
         font-family: 'Arial', sans-serif;
@@ -14,6 +14,155 @@
     /* Conteneur principal */
     .container {
         max-width: 900px;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    /* Titre */
+    h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        color: #007bff;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    /* Grille d'affichage */
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    /* Cartes */
+    .col-md-6 {
+        flex: 1 1 45%;
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.2);
+        text-align: center;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+        border: 2px solid #007bff;
+    }
+
+    .col-md-6:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 6px 15px rgba(0, 123, 255, 0.4);
+    }
+
+    /* Liens */
+    a {
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+        font-size: 1.4rem;
+        transition: color 0.3s, text-shadow 0.3s;
+    }
+
+    a:hover {
+        color: #ffcc00;
+        text-shadow: 0 0 10px rgba(255, 204, 0, 0.6);
+    }
+
+    /* Titres */
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+        color: #007bff;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+        color: #ff9900;
+        font-weight: bold;
+    } *@
+    body {
+        background-color: #f8f9fa;
+        color: #333;
+        font-family: 'Arial', sans-serif;
+        text-align: center;
+    }
+
+    /* Titre */
+    h2 {
+        color: #007bff;
+        font-size: 2rem;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    .chart-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    /* Style des graphiques */
+    .chart-box {
+        background: #ffffff;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.2);
+        border: 2px solid #007bff;
+        flex: 1 1 400px;
+        max-width: 1000px;
+        /* Largeur maximale pour éviter les graphiques trop grands */
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    }
+
+    .chart-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 6px 15px rgba(0, 123, 255, 0.4);
+    }
+
+    canvas {
+        width: 100% !important;
+        height: 250px !important;
+        max-height: 300px;
+    }
+
+
+
+    /* Titre */
+    h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        color: #007bff;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    /* Liens */
+    a {
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+        font-size: 1.4rem;
+        transition: color 0.3s, text-shadow 0.3s;
+    }
+
+    a:hover {
+        color: #ffcc00;
+        text-shadow: 0 0 10px rgba(255, 204, 0, 0.6);
+    }
+
+    body {
+        background-color: #f8f9fa;
+        color: #333;
+        font-family: 'Arial', sans-serif;
+    }
+
+    /* Conteneur principal */
+    .container {
+        max-width: 2000px;
         margin: 20px auto;
         padding: 20px;
     }
@@ -88,8 +237,80 @@
                 <a href="@Url.Action("Precision", "Home", new { nom = reponseJSON.nom })">
                     <h2>@reponseJSON.nom</h2>
                 </a>
-                <h3>@reponseJSON.valeur</h3>
+                <h3>@reponseJSON.valeur $ </h3>
             </div>
         }
     </div>
+    <div class="chart-container">
+        <div class="chart-box">
+            <canvas id="barChart"></canvas>
+        </div>
+        <div class="chart-box">
+            <canvas id="lineChart"></canvas>
+        </div>
+        <div class="chart-box">
+            <canvas id="pieChart"></canvas>
+        </div>
+    </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    async function loadGraphData() {
+        const response = await fetch('/Graph/GetGraphDataLead');
+        const data = await response.json();
+
+        // 🔹 Bar Chart
+        new Chart(document.getElementById('barChart'), {
+            type: 'bar',
+            data: {
+                labels: data.labels,
+                datasets: [{
+                    label: 'Lead mensuelle',
+                    data: data.values1,
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                    borderColor: '#007bff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+
+        // 🔹 Line Chart
+        new Chart(document.getElementById('lineChart'), {
+            type: 'line',
+            data: {
+                labels: data.labels,
+                datasets: [{
+                    label: 'Ticket mensuelle',
+                    data: data.values2,
+                    borderColor: '#ff3366',
+                    backgroundColor: 'rgba(255, 51, 102, 0.2)',
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+
+        // 🔹 Pie Chart
+        new Chart(document.getElementById('pieChart'), {
+            type: 'pie',
+            data: {
+                labels: data.labels2,
+                datasets: [{
+                    label: 'Budget par client',
+                    data: data.values3,
+                    backgroundColor: data.colors
+                }]
+            }
+        });
+    }
+
+    // Charger les données au chargement de la page
+    loadGraphData();
+</script>

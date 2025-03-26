@@ -175,9 +175,7 @@ public class CsvService {
         try {
             CSVParser csvParser = CsvUtil.readCsv(file, separator);
             List<?>listes=CsvUtil.parseCSV(csvParser,clazz,applicationContext,entityManager);
-            for (int i = 0; i < listes.size(); i++) {
-                System.out.println(listes.get(i));
-            }
+
             deleteTempTable(tempTableName);
             createTempTable(tableName);
             insertDataTempTable(tempTableName,listes);

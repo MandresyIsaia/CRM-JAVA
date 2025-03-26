@@ -63,4 +63,8 @@ public class NotificationServiceImpl implements NotificationService {
             notificationRepository.save(notification);
         }
     }
+    @Override
+    public Notification findByIdDepense(int idDepense){
+        return notificationRepository.findByIdDepense(idDepense);
+    }
 }

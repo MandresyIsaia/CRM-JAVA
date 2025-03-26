@@ -23,4 +23,5 @@ public interface NotificationService {
     long countByCustomerId(int customerId);
 
     void updateNotificationEtat(int notificationId, int newEtat);
+    Notification findByIdDepense(int idDepense);
 }

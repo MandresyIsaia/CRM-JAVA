@@ -23,6 +23,7 @@ public interface NotificationRepository extends JpaRepository<Notification, Inte
     long countByCustomerCustomerId(int customerId);
 
     List<Notification> findByCustomerCustomerIdAndEtatOrderByDateNotificationDesc(int customerId, int etat);
+    Notification findByIdDepense(int idDepense);
 
 
 }

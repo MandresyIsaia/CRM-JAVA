@@ -1,6 +1,7 @@
 package site.easy.to.build.crm.service.budget;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import site.easy.to.build.crm.entity.Budget;
 import site.easy.to.build.crm.entity.Customer;
@@ -41,11 +42,15 @@ public class BudgetService {
     public void delete(int id){
         budgetRepository.deleteById(id);
     }
+    public void delete(Budget budget){budgetRepository.delete(budget);}
     public List<Budget> findByCustomerId(int customerId){
         return budgetRepository.findByCustomerCustomerId(customerId);
     }
     public double getTotalBudgetByCustomerId(int customerId) {
         return budgetRepository.getTotalBudgetByCustomerId(customerId);
+    }
+    public double getTotal(){
+        return budgetRepository.getTotal();
     }
     public Notification checkBudget(int customerId, double newDepense) {
         double totalDepense = depenseService.getTotalDepenseByCustomerId(customerId) + newDepense;
@@ -68,6 +73,31 @@ public class BudgetService {
         } else {
             return new Notification("successful", date, 1, cust);
         }
+    }
+    public Notification checkBudgetModife(int customerId, double newDepense,double ancienDepense) {
+        double totalDepense = depenseService.getTotalDepenseByCustomerId(customerId) -ancienDepense + newDepense;
+        System.out.println("total depense" + totalDepense);
+        double seuil = seuilService.getSeuilActuel().getTaux().doubleValue();
+        double budget = getTotalBudgetByCustomerId(customerId);
+
+        double seuilBudget = budget * (seuil / 100);
+        LocalDateTime date = LocalDateTime.now();
+        Customer cust = customerService.findByCustomerId(customerId);
+        // 1 valider et 0 n'est pas valider
+        if (totalDepense > seuilBudget) {
+            return new Notification("Le seuil du budget est dépassé", date, 0, cust);
+
+        } else if (totalDepense > budget) {
+            return new Notification("Le budget est dépassé", date, 0, cust);
+        } else if (totalDepense == seuilBudget) {
+            return new Notification("le sueil du budget est atteint", date, 1, cust);
+
+        } else {
+            return new Notification("successful", date, 1, cust);
+        }
+    }
+    public long countByYearAndMonth(int year, int month){
+        return budgetRepository.countByYearAndMonth(year, month);
     }
 
 }

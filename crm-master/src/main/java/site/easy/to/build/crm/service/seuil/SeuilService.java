@@ -6,6 +6,7 @@ import site.easy.to.build.crm.entity.Seuil;
 import site.easy.to.build.crm.repository.SeuilRepository;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Optional;
 
@@ -59,14 +60,22 @@ public class SeuilService {
 
         List<Seuil> seuils = seuilRepository.findAll();
 
-        Optional<Seuil> seuilActuel = seuils.stream()
-            .min((seuil1, seuil2) -> {
-                long diff1 = Math.abs(seuil1.getDateSeuil().until(now, java.time.temporal.ChronoUnit.SECONDS));
-                long diff2 = Math.abs(seuil2.getDateSeuil().until(now, java.time.temporal.ChronoUnit.SECONDS));
-                return Long.compare(diff1, diff2);
-            });
-
-        return seuilActuel.orElse(null);
+//        Optional<Seuil> seuilActuel = seuils.stream()
+//            .min((seuil1, seuil2) -> {
+//                long diff1 = Math.abs(seuil1.getDateSeuil().until(now, java.time.temporal.ChronoUnit.SECONDS));
+//                long diff2 = Math.abs(seuil2.getDateSeuil().until(now, java.time.temporal.ChronoUnit.SECONDS));
+//                return Long.compare(diff1, diff2);
+//            });
+//
+//        return seuilActuel.orElse(null);
+         return seuils.stream()
+                 .filter(seuil -> !seuil.getDateSeuil().isAfter(now)) // Ne garder que les seuils ≤ dateActuelle
+                 .min((s1, s2) -> {
+                     long diff1 = Math.abs(ChronoUnit.SECONDS.between(s1.getDateSeuil(), now));
+                     long diff2 = Math.abs(ChronoUnit.SECONDS.between(s2.getDateSeuil(), now));
+                     return Long.compare(diff1, diff2); // Trouver le plus proche
+                 })
+                 .orElse(null);
     }
 
 }

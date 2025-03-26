@@ -1,0 +1,145 @@
+is_global = true
+build_property.TargetFramework = net9.0
+build_property.TargetFramework = net9.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = MonProjetMVC
+build_property.RootNamespace = MonProjetMVC
+build_property.ProjectDir = D:\s6\eval\java\c#\MonProjetMVC\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\s6\eval\java\c#\MonProjetMVC
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 9.0
+build_property.EnableCodeStyleSeverity = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/Budget/Budgets.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVkZ2V0XEJ1ZGdldHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/Budget/Confirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVkZ2V0XENvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/Customer/Customers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcQ3VzdG9tZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/Graph/Charts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhcGhcQ2hhcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/Graph/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhcGhcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/Home/DashBoard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEYXNoQm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/Home/TestApi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUZXN0QXBpLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/Lead/Leads.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVhZFxMZWFkcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/Lead/LeadsTous.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVhZFxMZWFkc1RvdXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/Lead/Modification.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVhZFxNb2RpZmljYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/Lead/ModificationTous.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVhZFxNb2RpZmljYXRpb25Ub3VzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcbG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/Role/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/Seuil/Modification.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2V1aWxcTW9kaWZpY2F0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/Seuil/Seuils.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2V1aWxcU2V1aWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/Ticket/Modification.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0XE1vZGlmaWNhdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/Ticket/ModificationTous.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0XE1vZGlmaWNhdGlvblRvdXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/Ticket/MultiCritere.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0XE11bHRpQ3JpdGVyZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/Ticket/Tickets.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0XFRpY2tldHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/Ticket/TicketsTous.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0XFRpY2tldHNUb3VzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/User/Display.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEaXNwbGF5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/s6/eval/java/c\#/MonProjetMVC/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-r8z041zfoc

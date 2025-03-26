@@ -1,0 +1,76 @@
+@using X.PagedList.Mvc.Core
+@using X.PagedList
+@model IPagedList<MonProjetMVC.Models.Depense>
+<style>
+    .pagination {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .pagination a,
+    .pagination span {
+        padding: 8px 12px;
+        margin: 2px;
+        text-decoration: none;
+        background-color: #007bff;
+        color: white;
+        border-radius: 4px;
+    }
+
+    .pagination .active {
+        background-color: #0056b3;
+        font-weight: bold;
+    }
+</style>
+<div>
+    <h2>Liste des Tickets</h2>
+    <form class="form" method="post" asp-action="RechercheMultiCritere" asp-controller="Ticket">
+        <label for="nom">Date debut :</label>
+        <input type="datetime-local" name="dateDebut">
+        <label for="nom">Date fin :</label>
+        <input type="datetime-local" name="dateFin">
+        <button type="submit">Rechercher</button>
+    </form>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Subject</th>
+            <th>Status</th>
+            <th>Description</th>
+            <th>Somme</th>
+            <th>Created at</th>
+            <th>Etat</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+        </tr>
+        @foreach (var depense in Model)
+        {
+            <tr>
+                <td>@depense.ticket.ticketId</td>
+                <td>@depense.ticket.subject</td>
+                <td>@depense.ticket.status</td>
+                <td>@depense.ticket.description</td>
+                <td>@depense.valeurDepense</td>
+                <td>@depense.ticket.createdAt</td>
+                @if (depense.etat == 1)
+                {
+                    <td>Valider</td>
+                }
+                else if (depense.etat == 0)
+                {
+                    <td>en attente...</td>
+                }
+                else
+                {
+                    <td>refuser</td>
+                }
+                <td><a href="@Url.Action("ModifierTous", "Ticket", new { nom = depense.ticket.ticketId })">Modifier</a></td>
+                <td><a href="@Url.Action("SuprimmerTous", "Ticket", new { nom = depense.ticket.ticketId })">Supprimer</a>
+                </td>
+            </tr>
+        }
+    </table>
+    <div class="pagination">
+        @Html.PagedListPager(Model, page => Url.Action("GetTicketTous", "Ticket", new { page }))
+    </div>
+</div>

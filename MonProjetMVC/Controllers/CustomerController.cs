@@ -6,12 +6,13 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using MonProjetMVC.Filter;
 using MonProjetMVC.Models;
 using MonProjetMVC.Services;
 
 namespace MonProjetMVC.Controllers
 {
-
+    [SessionValidationFilter]
     public class CustomerController : Controller
     {
         private readonly ILogger<CustomerController> _logger;
@@ -25,10 +26,12 @@ namespace MonProjetMVC.Controllers
         [HttpGet]
         public async Task<IActionResult> GetCustomers()
         {
-            string? jsessionId = HttpContext.Session.GetString("JSessionId");
-            var jsonResponse = await _apiService.TestOAuthApiWithSessionIdAsync(jsessionId, "/api/dashboard/customers");
-            List<Customer>? budgets = JsonSerializer.Deserialize<List<Customer>>(jsonResponse, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-            Console.WriteLine(budgets[0].name);
+            // string? jsessionId = HttpContext.Session.GetString("JSessionId");
+            // var jsonResponse = await _apiService.TestOAuthApiWithSessionIdAsync(jsessionId, "/api/dashboard/customers");
+
+            var jsonResponse = await _apiService.TestOAuthApiWithSessionIdAsync2("/api/dashboard/customers");
+            List<Budget>? budgets = JsonSerializer.Deserialize<List<Budget>>(jsonResponse, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
             return View("Customers", budgets);
 
         }

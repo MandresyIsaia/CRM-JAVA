@@ -7,12 +7,13 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using MonProjetMVC.Filter;
 using MonProjetMVC.Models;
 using MonProjetMVC.Services;
 
 namespace MonProjetMVC.Controllers
 {
-
+    [SessionValidationFilter]
     public class BudgetController : Controller
     {
         private readonly ILogger<BudgetController> _logger;
@@ -24,13 +25,14 @@ namespace MonProjetMVC.Controllers
         }
         public async Task<IActionResult> Budgets()
         {
-            string jsessionId = "1BFCA94C5AC72E401635931C772F9FBB";
-            var jsonResponse = await _apiService.TestOAuthApiWithSessionIdAsync(jsessionId, "/api/oauth/budgets");
+            // string jsessionId = "1BFCA94C5AC72E401635931C772F9FBB";
+            // var jsonResponse = await _apiService.TestOAuthApiWithSessionIdAsync(jsessionId, "/api/oauth/budgets");
+            var jsonResponse = await _apiService.TestOAuthApiWithSessionIdAsync2("/api/oauth/budgets");
             List<Budget>? budgets = JsonSerializer.Deserialize<List<Budget>>(jsonResponse, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
             Console.WriteLine("Liste des Budgets:");
             foreach (var budget in budgets)
             {
-                Console.WriteLine($"ID: {budget.Id}, Valeur: {budget.Valeur}, Client: {budget.Customer.name}");
+                Console.WriteLine($"ID: {budget.id}, Valeur: {budget.valeur}, Client: {budget.customer.name}");
             }
             return View(budgets);
 

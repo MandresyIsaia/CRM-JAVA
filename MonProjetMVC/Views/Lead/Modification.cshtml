@@ -5,7 +5,7 @@
 
     <form class="form" method="post" asp-action="ModificationLead" asp-controller="Lead">
         <label for="nom">Nouveau valeur :</label>
-        <input type="number" id="nom" name="nom" required value="@Model.valeurDepense" />
+        <input type="number" id="nom" name="nom" required value="@((double)Model.valeurDepense)" />
         <input type="hidden" value="@Model.depenseId" name="id">
         <button type="submit">Soumettre</button>
     </form>

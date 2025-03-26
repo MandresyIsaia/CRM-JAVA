@@ -14,6 +14,6 @@ namespace MonProjetMVC.Models
         public string? meetingId { get; set; }
         public bool? googleDrive { get; set; }
         public string? googleDriveFolderId { get; set; }
-        public DateTime createdAt { get; set; } = DateTime.UtcNow;
+        public DateTime? createdAt { get; set; } = DateTime.UtcNow;
     }
 }

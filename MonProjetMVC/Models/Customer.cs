@@ -32,6 +32,6 @@ namespace MonProjetMVC.Models
         public string? facebook { get; set; }
 
         public string? youtube { get; set; }
-        public DateTime createdAt { get; set; }
+        public DateTime? createdAt { get; set; }
     }
 }

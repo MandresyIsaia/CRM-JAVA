@@ -9,7 +9,7 @@ namespace MonProjetMVC.Models
     {
         public int depenseId { get; set; }
         public decimal valeurDepense { get; set; }
-        public DateTime dateDepense { get; set; }
+        public DateTime? dateDepense { get; set; }
         public int etat { get; set; }
         public Lead? lead { get; set; }
         public Ticket? ticket { get; set; }

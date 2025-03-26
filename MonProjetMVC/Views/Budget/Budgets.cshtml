@@ -23,9 +23,9 @@ else
             @foreach (var budget in Model)
             {
                 <tr>
-                    <td>@budget.Id</td>
-                    <td>@budget.Valeur</td>
-                    <td>@(budget.Customer != null ? budget.Customer.name : "Aucun client")</td>
+                    <td>@budget.id</td>
+                    <td>@budget.valeur</td>
+                    <td>@(budget.customer != null ? budget.customer.name : "Aucun client")</td>
                 </tr>
             }
         </table>

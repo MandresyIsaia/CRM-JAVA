@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\s6\\eval\\java\\gitHub\\CRM-JAVA\\MonProjetMVC\\MonProjetMVC.csproj": {}
+    "D:\\s6\\eval\\java\\c#\\MonProjetMVC\\MonProjetMVC.csproj": {}
   },
   "projects": {
-    "D:\\s6\\eval\\java\\gitHub\\CRM-JAVA\\MonProjetMVC\\MonProjetMVC.csproj": {
+    "D:\\s6\\eval\\java\\c#\\MonProjetMVC\\MonProjetMVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\s6\\eval\\java\\gitHub\\CRM-JAVA\\MonProjetMVC\\MonProjetMVC.csproj",
+        "projectUniqueName": "D:\\s6\\eval\\java\\c#\\MonProjetMVC\\MonProjetMVC.csproj",
         "projectName": "MonProjetMVC",
-        "projectPath": "D:\\s6\\eval\\java\\gitHub\\CRM-JAVA\\MonProjetMVC\\MonProjetMVC.csproj",
+        "projectPath": "D:\\s6\\eval\\java\\c#\\MonProjetMVC\\MonProjetMVC.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "D:\\s6\\eval\\java\\gitHub\\CRM-JAVA\\MonProjetMVC\\obj\\",
+        "outputPath": "D:\\s6\\eval\\java\\c#\\MonProjetMVC\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -43,6 +43,42 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.3, )"
+            },
+            "MySql.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
+            "System.Net.Http": {
+              "target": "Package",
+              "version": "[4.3.4, )"
+            },
+            "X.PagedList.Mvc.Core": {
+              "target": "Package",
+              "version": "[10.5.7, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
